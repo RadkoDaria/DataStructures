@@ -11,15 +11,18 @@ namespace DoubleLinkedList
         static void Main(string[] args)
         {
             CustomList2<string> usersDeck = new CustomList2<string>();
-            usersDeck.Push("Alice");
-            usersDeck.Push("Kate");
             usersDeck.Push("Tom");
+            usersDeck.Push("Alice");
+            usersDeck.Enqueue("Bob");
+            usersDeck.Enqueue("Sam");
 
             foreach (string s in usersDeck)
                 Console.WriteLine(s);
 
             string removedItem = usersDeck.Pop();
-            Console.WriteLine("\n Удален: {0} \n", removedItem);
+            string removedItem2 = usersDeck.Dequeue();
+            Console.WriteLine("\n Deleted: {0} \n", removedItem);
+            Console.WriteLine("\n Deleted: {0} \n", removedItem2);
 
             foreach (string s in usersDeck)
                 Console.WriteLine(s);

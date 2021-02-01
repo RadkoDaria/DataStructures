@@ -25,11 +25,15 @@ namespace DoubleLinkedList
         public DoublyEnumerator(DoublyNode<T> h)
         {
             head = h;
-            node = head;
         }
-
         public bool MoveNext()
         {
+            if (head == null) return false;
+            if (node == null)
+            {
+                node = head;
+                return true;
+            }
             if (node.Next != null)
             {
                 node = node.Next;

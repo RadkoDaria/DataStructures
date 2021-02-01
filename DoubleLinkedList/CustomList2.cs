@@ -34,13 +34,15 @@ namespace DoubleLinkedList
         public void Enqueue(T data)
         {
             DoublyNode<T> node = new DoublyNode<T>(data);
-            DoublyNode<T> temp = head;
-            node.Next = temp;
-            head = node;
-            if (count == 0)
-                tail = head;
+
+            if (head == null)
+                head = node;
             else
-                temp.Previous = node;
+            {
+                tail.Next = node;
+                node.Previous = tail;
+            }
+            tail = node;
             count++;
         }
 
@@ -74,13 +76,15 @@ namespace DoubleLinkedList
         public void Push(T data)
         {
             DoublyNode<T> node = new DoublyNode<T>(data);
-            DoublyNode<T> temp = head;
-            node.Next = temp;
-            head = node;
-            if (count == 0)
-                tail = head;
+
+            if (head == null)
+                head = node;
             else
-                temp.Previous = node;
+            {
+                tail.Next = node;
+                node.Previous = tail;
+            }
+            tail = node;
             count++;
         }
     }
